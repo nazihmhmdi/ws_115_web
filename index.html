@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PWS</title>
+  <script src="jquery.js"></script>
+</head>
+
+<body>
+    <h1>Data Mahasiswa</h1>
+    <br>
+    <button onclick="wsconsume()"> Lihat Data </button>
+    <div id="view"> Data Mahasiswa <br> </div>
+    <script>
+      var data =document.getElementById.getElementById("view");
+      function wsconsume() {
+        $.getJSON("http://localhost:8080/mahasiswa/json", function(data) {
+          console.log(data);
+          $.each(data,function(i){
+            document.getElementById("view").innerHTML += "NIM : " + data[i].nim + " | NAMA : " + data[i].nama + " | ALAMAT : " + data[i].alamat + " | PRODI : " + data[i].prodi + " | FAKULTAS : " + data[i].fakultas + "<br>"
+          })
+        })
+      }
+    </script>
+</body>
+</html>
